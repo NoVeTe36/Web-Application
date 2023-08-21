@@ -1,0 +1,22 @@
+a
+{
+    text-decoration: none; /* Remove underline */
+}
+
+/* Unvisited link */
+a:link
+{
+    color: black;
+}
+
+/* Visited link */
+a:visited
+{
+    color: red;
+}
+
+/*Hover*/
+a:hover
+{
+    color: green;
+}
