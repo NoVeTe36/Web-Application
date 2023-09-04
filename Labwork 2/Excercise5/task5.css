@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+}
+input{
+    margin: 3px;
+}
+.label{
+    width: 120px;
+    display: inline-block;
+    text-align: left;
+}
