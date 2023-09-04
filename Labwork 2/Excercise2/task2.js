@@ -3,10 +3,10 @@ $(document).ready(function(){
         var inputNumbers = $("#inputNumber").val().split(' ').map(Number);
         if (inputNumbers.length > 0) {
             var maxNumber = Math.max.apply(null, inputNumbers);
-            $("#displayMaxNumber").html("Max number is: " + maxNumber);
+            alert("Max number is: " + maxNumber);
         } 
         else {
-            $("#displayMaxNumber").html("No valid numbers entered.");
+            alert("Please enter at least one number");
         }
     });
 });
