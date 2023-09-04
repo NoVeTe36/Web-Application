@@ -5,20 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#getMaxNumberBtn").click(function(){
-                var inputNumbers = $("#inputNumber").val().split(' ').map(Number);
-                if (inputNumbers.length > 0) {
-                    var maxNumber = Math.max.apply(null, inputNumbers);
-                    $("#displayMaxNumber").html("Max number is: " + maxNumber);
-                } 
-                else {
-                    $("#displayMaxNumber").html("No valid numbers entered.");
-                }
-            });
-        });
-    </script>
+    <script src="./task2.js"></script>
 </head>
 <body>
     <div class="FindMaxNumber">
