@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#getMaxNumberBtn").click(function(){
+                var inputNumbers = $("#inputNumber").val().split(' ').map(Number);
+                if (inputNumbers.length > 0) {
+                    var maxNumber = Math.max.apply(null, inputNumbers);
+                    $("#displayMaxNumber").html("Max number is: " + maxNumber);
+                } 
+                else {
+                    $("#displayMaxNumber").html("No valid numbers entered.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="FindMaxNumber">
+        <h1>Find Max Number</h1>
+        <input type="text" id="inputNumber" class="form-control mb-3" placeholder="Input numbers">
+        <button id="getMaxNumberBtn" class="btn btn-primary">Find max</button>
+        <div id="displayMaxNumber" class="mt-4"></div>
+    </div>
+</body>
+</html>

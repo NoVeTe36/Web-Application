@@ -22,6 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: sans-serif;
 }
 .footer {
   width: 100%;
@@ -78,6 +79,7 @@
   outline: none;
   background-color: transparent;
   transition: all 0.3s ease-in-out;
+  font-family: sans-serif;
 }
 
 .nav-link:hover,
@@ -108,7 +110,7 @@
 
 .main-about{
   display: flex;
-  flex-direction: column;
+  flex-direction: column;    
   gap: 14px;
   list-style-position: inside;
 }

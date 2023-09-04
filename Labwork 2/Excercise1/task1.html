@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+    <script src = "./task1.js"></script>
+</head>
+<body>
+    <div class = "converter">
+        <h1>Temperature Converter</h1>
+        <input id="tempInput" type="number" class="form-control mb-3" placeholder="Temperature">
+        <select id="tempType" name="tempType">
+            <option value="celsius">Celsius to Fahrenheit</option>
+            <option value="fahrenheit">Fahrenheit to Celsius</option>
+        </select>
+        <button id="getWeatherBtn" class="btn btn-primary">Convert</button>
+        <div id="weatherInfo" class="mt-4"></div>
+    </div>
+</body>
+</html>
