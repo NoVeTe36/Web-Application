@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ten thang nao day</title>
+    <link href="styles.css" rel="stylesheet" />
+
+    <!-- Bootstrap and icons import -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="container d-flex flex-column" id="page-container">
+      <header style="margin: 10px 0" class="d-flex justify-content-between align-items-center">
+        <h1 style="margin: 0">Member <span class="emphasis">Name</span></h1>
+        <button id="contact-btn">
+          <i class="bi bi-telephone-fill"></i>
+        </button>
+      </header>
+
+      <main class="d-flex flex-fill gap-3" id="main">
+        <div class="profile d-flex flex-column">
+          <div class="avatar-container">
+            <img
+              src="./assets/images/avatar.jpg"
+              alt="Avatar photo"
+              width="100%"
+              height="100%"
+              style="object-fit: cover"
+            />
+          </div>
+          <div class="avatar-spacer"></div>
+
+          <div class="profile-container layout-card d-flex flex-column flex-fill">
+            <h4 style="text-align: center; margin: 10px 0px 0px 0px">Member Name</h4>
+            <p style="text-align: center">Fresher developer</p>
+            <ul class="d-flex gap-2 justify-content-center" id="social-media-list">
+              <li>
+                <a><i class="bi bi-facebook" style="color: #1877f2"></i></a>
+              </li>
+              <li>
+                <a><i class="bi bi-linkedin" style="color: #0077b5"></i></a>
+              </li>
+              <li>
+                <a><i class="bi bi-github" style="color: #0b0909"></i></a>
+              </li>
+              <li>
+                <a><i class="bi bi-instagram"></i></a>
+              </li>
+            </ul>
+            <div class="contact flex-fill d-flex flex-column">
+              <ul class="d-flex flex-column gap-4 flex-fill">
+                <li class="d-flex align-items-center gap-3">
+                  <i class="bi bi-phone-fill"></i>
+                  <div>
+                    <h5>Phone</h5>
+                    <p>0123456789</p>
+                  </div>
+                </li>
+                <li class="d-flex align-items-center gap-3">
+                  <i class="bi bi-envelope-fill"></i>
+                  <div>
+                    <h5>Email</h5>
+                    <p>some.email@exmaple.com</p>
+                  </div>
+                </li>
+                <li class="d-flex align-items-center gap-3">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <div>
+                    <h5>Location</h5>
+                    <p>Hanoi</p>
+                  </div>
+                </li>
+              </ul>
+              <button class="download-button">Download resume</button>
+            </div>
+          </div>
+        </div>
+        <div class="flex-fill d-flex flex-column">
+          <div class="avatar-spacer">
+            <nav id="nav">
+              <ul class="d-flex gap-3 justify-content-end align-items-center">
+                <li class="d-flex align-items-center current">
+                  <i class="bi bi-briefcase-fill"></i>
+                  Work
+                </li>
+                <li class="d-flex align-items-center">
+                  <i class="bi bi-pen-fill"></i>
+                  Skill
+                </li>
+                <li class="d-flex align-items-center">
+                  <i class="bi bi-chat-dots-fill"></i>
+                  Language
+                </li>
+                <li class="d-flex align-items-center">
+                  <i class="bi bi-book-fill"></i>
+                  Education
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <section class="layout-card flex-fill">
+            <h2>Work</h2>
+
+            <ul>
+              <li>2014 - Intern at some company</li>
+              <li>2016 - Some company</li>
+              <li>2017 - Some company</li>
+              <li>2019 - Some company</li>
+            </ul>
+          </section>
+        </div>
+      </main>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+      ></script>
+    </div>
+  </body>
+</html>

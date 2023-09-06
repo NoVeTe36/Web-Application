@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway&family=Poppins:wght@400;500;700&display=swap");
+
+html,
+body,
+#page-container {
+  min-height: 100vh;
+}
+
+#main {
+  padding-bottom: 30px;
+}
+
+body {
+  background-color: #f2f5f9 !important;
+}
+
+h1 {
+  font-family: "Pacifico", cursive;
+}
+
+#contact-btn {
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: #f65e12;
+}
+#contact-btn i {
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+p,
+a,
+button {
+  font-family: "Railway", sans-serif;
+}
+
+h1 .emphasis {
+  background: -webkit-linear-gradient(#ff9c1a, #ed250a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile {
+  position: relative;
+}
+
+.avatar-container {
+  width: 200px;
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.avatar-spacer {
+  height: 100px;
+}
+
+.layout-card {
+  border-radius: 20px;
+  background-color: white;
+  padding: 30px;
+}
+
+.profile-container {
+  background-color: white;
+  width: 400px;
+  border-radius: 20px;
+  padding-top: 100px;
+}
+
+#social-media-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#social-media-list li {
+  background-color: #f2f7fc;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+#social-media-list i {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+i {
+  position: relative;
+  display: block;
+}
+
+i::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.contact {
+  background-color: #f2f5f9;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.contact ul {
+  padding: 0;
+}
+.contact i {
+  font-size: 1.8rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  color: #f65e12;
+}
+
+.contact h5 {
+  color: #1a100380;
+  font-size: 0.9rem;
+  margin: 0px;
+}
+
+.contact p {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0;
+}
+.download-button {
+  border: none;
+  border-radius: 999px;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  font-weight: 500;
+  background: linear-gradient(339deg, rgba(232, 5, 5, 1) 0%, rgba(255, 156, 26, 1) 100%);
+}
+
+#nav {
+  height: 100%;
+}
+#nav ul {
+  list-style-type: none;
+  margin: 0;
+  height: 100%;
+}
+
+#nav ul li {
+  font-size: 1rem;
+  color: #1a100380;
+}
+
+#nav ul li.current {
+  color: #f65e12;
+}
+#nav ul li i {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+}
