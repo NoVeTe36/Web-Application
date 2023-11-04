@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table, td, th {
+          border: 2px solid;
+        }
+        
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          background-color: white;
+        }
+        
+        .input {
+            width: 98%;
+            border: 0;
+            align-items: center;
+        }
+
+        body {
+            background-color: blue;
+        }
+
+        .fillUpForm {
+            display:flex;
+            flex-direction:column-reverse;
+            align-items:flex;
+        }
+
+        .press{
+            width: 100px;
+            align-items: center;
+        }
+
+        td{
+            text-align: center;
+        }
+      </style>
+
+      <script>
+        function checkValid(){            
+            var fullname = document.getElementById("fullname").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var majority = document.getElementById("majority").value;
+            var optionMP = document.getElementById("optionMP").value;
+            var optionWork = document.getElementById("optionWork").value;
+            var optionEnv = document.getElementById("optionEnv").value;
+            var idea = document.getElementById("idea").value;
+
+            if(fullname == "" || dob == "" || email == "" || phone == "" || majority == "" || optionMP == "" || optionWork == "" || optionEnv == "" || idea == ""){
+                alert("Please fill all the fields");
+                return false;
+            }
+
+            // check email
+            var regex = /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
+            if(!regex.test(email)){
+                alert("Please input valid email");
+                return false;
+            }
+
+            // check phone
+            var regex = /[0-9]{10}/;
+            if(!regex.test(phone)){
+                alert("Please input valid phone number");
+                return false;
+            }
+
+            // check majority
+            if(majority < 0 || majority > 4){
+                alert("Please input valid majority");
+                return false;
+            }
+
+            // check optionMP
+            if(optionMP < 0 || optionMP > 1){
+                alert("Please input valid optionMP");
+                return false;
+            }
+
+            // check optionWork
+            if(optionWork < 0 || optionWork > 5){
+                alert("Please input valid optionWork");
+                return false;
+            }
+
+            // check optionEnv
+            if(optionEnv < 0 || optionEnv > 5){
+                alert("Please input valid optionEnv");
+                return false;
+            }
+
+            return true;
+        }
+
+        $(document).ready(function(){
+            $("input[type='submit']").click(function(event){
+                var fullname = document.getElementById("fullname").value;
+                var dob = document.getElementById("dob").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var majority = document.getElementById("majority").value;
+                var optionMP = document.getElementById("optionMP").value;
+                var optionWork = document.getElementById("optionWork").value;
+                var optionEnv = document.getElementById("optionEnv").value;
+                var idea = document.getElementById("idea").value;
+                if(checkValid()){ 
+                    event.preventDefault();
+                    $.ajax({
+                        url: "form.php",
+                        type: "POST",
+                        data: {
+                            fullname: fullname,
+                            dob: dob,
+                            email: email,
+                            phone: phone,
+                            majority: majority,
+                            optionMP: optionMP,
+                            optionWork: optionWork,
+                            optionEnv: optionEnv,
+                            idea: idea
+                        },
+                        success: function(data){
+                            $("#result").html("Your information has been submitted successfully");
+                        }
+                    });
+                }
+                else{
+                    event.preventDefault();
+                }
+            });
+            $("input[type='reset']").click(function(){
+                $("#fullname").val("");
+                $("#dob").val("");
+                $("#email").val("");
+                $("#phone").val("");
+                $("#majority").val("");
+                $("#optionMP").val("");
+                $("#optionWork").val("");
+                $("#optionEnv").val("");
+                $("#idea").val("");
+            });
+        });
+      </script>
+
+</head>
+<body>
+    <div class="fillUpForm">
+        <form class="fillUpForm" method="post" id="fillForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Survey</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>
+                            <label for="fullname" class="label">Full Name</label>
+                        </th>                    
+                        <td>
+                            <input type="text" name="fullname" id="fullname" class="input" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="dob" class="label">Date of birth</label>
+                        </th>                    
+                        <td>
+                            <input type="date" name="dob" id="dob" class="input" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="email" class="label">Email</label>
+                        </th>                    
+                        <td>
+                            <input type="email" name="email" id="email" class="input" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="phone" class="label">Phone Number</label>
+                        </th>                    
+                        <td>
+                            <input type="text" name="phone" id="phone" class="input" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="majority" class="label">Majority</label>
+                        </th>                    
+                        <td>
+                            <select name="majority" id="majority" class="input" required>
+                                <option value=""> Choose your majority</option>
+                                <option value="Bioinformatics">Bioinformatics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Applied Math">Applied Math</option>
+                                <option value="Cyber Security">Cyber Security</option>
+                                <option value="Data Science">Data Science</option>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="optionMaster" class="label">Do you want to study Master or PhD</label>
+                        </th>                    
+                        <td>
+                            <select name="optionMP" id="optionMP" class="input" required>
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="optionWork" class="label">Which job do you want to seek for?</label>
+                        </th>                    
+                        <td>
+                            <select name="optionWork" id="optionWork" class="input" required>
+                                <option value=""> Choose your work field</option>
+                                <option value="Education">Education</option>
+                                <option value="Government">Government</option>
+                                <option value="Financial">Financial</option>
+                                <option value="Banking">Banking</option>
+                                <option value="Research">Research</option>
+                                <option value="Construction">Construction</option>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="optionEnv" class="label">Rate your study environment from 1 to 5 (1: very bad, 5: very good)</label>
+                        </th>                    
+                        <td>
+                            <select name="optionEnv" id="optionEnv" class="input" required>
+                                <option value="">Choose your rate</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="idea" class="label">Your ideas to improve study environment:</label>
+                        </th>                    
+                        <td>
+                            <textarea name="idea" id="idea" cols="30" rows="10" class="input"></textarea>                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="reset" value="Reset">
+                            <input type="submit" value="Submit">
+                        </td>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

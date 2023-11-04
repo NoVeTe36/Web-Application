@@ -12,7 +12,7 @@
     
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $number = $_POST['number']; 
+        $number = $_POST['number'];
         if (empty($number)) {
             echo "Number is empty";
         } else {

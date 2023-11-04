@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <style>
+        .fillUpForm {
+            display:flex;
+            flex-direction: column;
+            align-items:flex-start;
+        }
+
+        .label {
+            margin-top: 10px;
+        }
+    </style>
+
+    <script>
+        function checkValid(){
+            var TP = document.getElementById("TP").value;
+            var FN = document.getElementById("FN").value;
+            var FP = document.getElementById("FP").value;
+            var TN = document.getElementById("TN").value;
+            if(TP < 0 || FN < 0 || FP < 0 || TN < 0){
+                alert("Please input positive number");
+                return false;
+            }
+            // if contains special character
+            var regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if(regex.test(TP) || regex.test(FN) || regex.test(FP) || regex.test(TN)){
+                alert("Please input positive number");
+                return false;
+            }
+            // if contains alphabet
+            var regex = /[a-zA-Z]+/;
+            if(regex.test(TP) || regex.test(FN) || regex.test(FP) || regex.test(TN)){
+                alert("Please input positive number");
+                return false;
+            }
+            return true;
+        }
+
+        $(document).ready(function(){
+            $("input[type='submit']").click(function(){
+                $(".result").remove();
+                if(checkValid()){
+                    var TP = document.getElementById("TP").value;
+                    var FN = document.getElementById("FN").value;
+                    var FP = document.getElementById("FP").value;
+                    var TN = document.getElementById("TN").value;
+                    // print on screen these values
+                    var html = "<div class='result'>"
+                    html += "<p>True Positive: " + TP + "</p>";
+                    html += "<p>False Negative: " + FN + "</p>";
+                    html += "<p>False Positive: " + FP + "</p>";
+                    html += "<p>True Negative: " + TN + "</p>";
+                    html += "</div>";
+                    $("body").append(html);     
+                    event.preventDefault();
+                    $.ajax({
+                        url: "metrics.php",
+                        type: "POST",
+                        data: {
+                            TP: TP,
+                            FN: FN,
+                            FP: FP,
+                            TN: TN
+                        },
+                        success: function(data){
+                            $("#result").html(data);
+                        }
+                    });
+                    $(".displayResult").remove();
+                }
+                else{
+                    event.preventDefault();
+                }
+            });
+            $("input[type='reset']").click(function(){
+                $("#TP").val("");
+                $("#FN").val("");
+                $("#FP").val("");
+                $("#TN").val("");
+                $(".result").remove();
+                $(".displayResult").remove();
+            });
+
+            $("#display").click(function(){
+                $.ajax({
+                    url: "metrics.php",
+                    type: "GET",
+                    success: function(data){
+                        $("#displayResult").html(data); // Display the result in a specific element with id="displayResult"
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h1>Input form</h1>
+    <div class="fillUpForm">
+        <form action="metrics.php" class="fillUpForm" method="post" id="metricsForm">
+            <label for="TruePositive" class="label">TruePositive</label>
+            <input type="number" name="TP" id="TP" required>
+            <br>
+
+            <label for="FalseNegative" class="label">False Negative</label>
+            <input type="number" name="FN" id="FN" required>
+            <br>
+
+            <label for="FalsePositive" class="label">False Positive</label>
+            <input type="number" name="FP" id="FP" required>
+            <br>
+
+            <label for="TrueNegative" class="label">True Negative</label>
+            <input type="number" name="TN" id="TN" required>
+            <br>        
+
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+            <input type="button" value="Display" id="display">
+        </form>
+        <div id="displayResult" class="mt-4"></div>
+    </div>
+</body>
+</html>
